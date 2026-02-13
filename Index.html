@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Custom WiFi Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #1a1a2e; /* Rangi ya giza sana */
+            --card-bg: #16213e;    /* Rangi ya kadi */
+            --accent-color: #f39c12; /* Rangi ya dhahabu/njano */
+            --text-color: #ffffff;
+            --sub-text: #95a5a6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+        }
+
+        /* Header ya Kisasa */
+        .header {
+            padding: 25px 20px;
+            background: linear-gradient(135deg, #0f3460, #1a1a2e);
+            text-align: left;
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            margin: 5px 0 0;
+            font-size: 13px;
+            color: var(--accent-color);
+        }
+
+        /* Sehemu ya Router Info */
+        .status-container {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .status-card {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            width: 80%;
+            border: 1px solid rgba(243, 156, 18, 0.2);
+        }
+
+        .status-card i {
+            font-size: 50px;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+        }
+
+        /* Grid ya Icons */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Mbili mbili ili ziwe kubwa */
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .menu-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            border-bottom: 3px solid transparent;
+        }
+
+        .menu-item:active {
+            transform: translateY(5px);
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .menu-item i {
+            font-size: 28px;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .menu-item span {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Footer ya AppCreator Style */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #16213e;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-link {
+            text-align: center;
+            color: var(--sub-text);
+            text-decoration: none;
+            font-size: 11px;
+        }
+
+        .nav-link.active {
+            color: var(--accent-color);
+        }
+
+        .nav-link i {
+            font-size: 20px;
+            margin-bottom: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>My Private WiFi</h1>
+        <p><i class="fas fa-circle" style="font-size: 8px; color: #2ecc71;"></i> System Online</p>
+    </div>
+
+    <div class="status-container">
+        <div class="status-card">
+            <i class="fas fa-microchip"></i>
+            <h3 style="margin: 10px 0 5px;">Dashboard</h3>
+            <span style="font-size: 12px; color: var(--sub-text);">Model: Custom Router v1.0</span>
+        </div>
+    </div>
+
+    <div class="menu-grid">
+        <div class="menu-item" onclick="location.href='http://192.168.1.1/wifi'">
+            <i class="fas fa-shield-halved"></i>
+            <span>Security</span>
+        </div>
+
+        <div class="menu-item" onclick="location.href='http://192.168.1.1/devices'">
+            <i class="fas fa-users"></i>
+            <span>Devices</span>
+        </div>
+
+        <div class="menu-item" onclick="location.href='https://www.speedtest.net'">
+            <i class="fas fa-gauge-high"></i>
+            <span>Performance</span>
+        </div>
+
+        <div class="menu-item" onclick="location.href='http://192.168.1.1/network'">
+            <i class="fas fa-network-wired"></i>
+            <span>Network</span>
+        </div>
+
+        <div class="menu-item" onclick="location.href='http://192.168.1.1/parental'">
+            <i class="fas fa-user-lock"></i>
+            <span>Restrictions</span>
+        </div>
+
+        <div class="menu-item" onclick="location.href='http://192.168.1.1/advanced'">
+            <i class="fas fa-sliders"></i>
+            <span>Advanced</span>
+        </div>
+    </div>
+
+    <div style="height: 80px;"></div>
+
+    <div class="bottom-nav">
+        <a href="#" class="nav-link"><i class="fas fa-home"></i><br>Home</a>
+        <a href="#" class="nav-link active"><i class="fas fa-layer-group"></i><br>Control</a>
+        <a href="#" class="nav-link"><i class="fas fa-gear"></i><br>Settings</a>
+    </div>
+
+</body>
+</html>
